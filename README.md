@@ -29,3 +29,8 @@ Setting it to 0 disables the timeout. The default is 7 seconds.
 
 https://stackoverflow.com/questions/35027046/difference-between-data-main-and-normal-script-loading
 https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
+
+## Errors 
+https://stackoverflow.com/questions/63793934/how-to-solve-mismatched-anonymous-define-module
+
+# AMD (Asynchronous Module Definition)
