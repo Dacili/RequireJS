@@ -3,7 +3,7 @@ https://requirejs.org/docs/api.html
 
 ## What is RequireJS?
 
-## When to use it?
+## Why to use it?
 
 ## How to use it?
 
