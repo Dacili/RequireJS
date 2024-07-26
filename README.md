@@ -23,3 +23,9 @@ The path mapping code will automatically add the .js extension when mapping the 
 ### waitSeconds
 waitSeconds: The number of seconds to wait before giving up on loading a script.  
 Setting it to 0 disables the timeout. The default is 7 seconds.
+
+
+## Define vs require
+
+https://stackoverflow.com/questions/35027046/difference-between-data-main-and-normal-script-loading
+https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
