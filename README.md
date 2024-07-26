@@ -33,4 +33,6 @@ https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
 ## Errors 
 https://stackoverflow.com/questions/63793934/how-to-solve-mismatched-anonymous-define-module
 
-# AMD (Asynchronous Module Definition)
+## AMD (Asynchronous Module Definition)
+
+## async in script tag in HTML
