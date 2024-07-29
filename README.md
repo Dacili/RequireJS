@@ -19,7 +19,8 @@ There are several ways an external script can be executed:
 ## What is RequireJS?
 RequireJS is a JavaScript *file and module loader*.  
 In JavaScript, *module loaders* are tools or mechanisms that allow you to load and manage *modules*.  
-*Modules* are reusable pieces of code.
+*Modules* are reusable pieces of code.  
+RequireJS always **loads modules asynchronously**, with no blocking.
 
 ## Why to use it?
 There are some reasons:  
