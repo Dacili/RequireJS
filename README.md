@@ -1,6 +1,24 @@
 # RequireJS
 https://requirejs.org/docs/api.html  
 
+## What is a module in JS? 
+Splitting JavaScript programs up into separate modules that can be imported when needed.   
+(rather than keeping it in a single file and moving those pieces to other files or projects.)   
+Modules can contain functions, variables, and objects that perform specific functions.  
+
+## Modular JS libraries and frameworks: 
+#### 1. CommonJS 
+is a project to standardize the module ecosystem for JavaScript outside of web browsers.  
+CommonJS's specification of how modules should work is widely used today for server-side JavaScript with **Node.js**.
+#### 2. AMD-based module systems such as RequireJS
+AMD is a JavaScript specification that defines an interface for writing and loading modules, such that the module and its dependencies can be asynchronously loaded.
+
+#### 3. Webpack 
+webpack is a static module bundler for modern JavaScript applications
+
+#### 4. Babel
+is a JavaScript compiler
+
 ## Ways to execute JS script
 There are several ways an external script can be executed:  
 - **async**: The script is downloaded *in parallel* to parsing the page and *executed* as soon as it is available (**before parsing completes**)  
@@ -76,7 +94,7 @@ requirejs(["medina"], function(exampleParam) {
 - once medina.js file is loaded, the function will be executed
 - *The parameter exampleParam in function can be named whatever you like, and it's an object from the module you loaded. So you could now use functions from that module.*
 
-#### b) you need several modules to be loaded
+##### b) you need several modules to be loaded
 ```
 requirejs(['jquery', 'canvas'],
 function   ($, canvas) {
@@ -102,6 +120,25 @@ The code above technically means:
 - Load require.js  
 - After that, when require-js-config is loaded, execute the code from the function,
 - After that once foo is loaded, proceed with its function.  
+#### 5. or you could define your own module with define()
+##### a) Define named module without dependencies
+ ```
+define("foo/medii",
+        function(cart, inventory) {
+            //Define foo/title object in here.
+       }
+    );
+```
+##### b) Define named module with dependencies
+define() function allows the module to declare its dependencies before being loaded:   
+ ```  define("foo/medii",
+        ["my/cart", "my/inventory"],
+        function(cart, inventory) {
+            //Define foo/title object in here.
+       }
+    );
+```
+The code above defines new module medii, once the dependencies in the array are loaded.  
 
 ## requirejs() vs require()
 Sometimes we will see one or other use in practice. But technically, **they're the same**.  
@@ -149,8 +186,8 @@ The first one is equivalent to this:
 ```
 Also, the difference is mentioned in *configuration settings* part, for data-main attr.
 ## Define vs require
-- define: used to define modules, to use in multiple locations (reuse)
-- require: load and use existing modules (I want this module + also load all its dependencies)
+- **define**: used to define modules, to use in multiple locations (reuse)
+- **require**: load and use existing modules (I want this module + also load all its dependencies)
 
 https://stackoverflow.com/questions/9507606/when-should-i-use-require-and-when-to-use-define  
 https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
@@ -163,6 +200,4 @@ The external library has in their SDK js file, *define* without the name of the 
 define([],t)
 ```
 https://stackoverflow.com/questions/63793934/how-to-solve-mismatched-anonymous-define-module
-## AMD (Asynchronous Module Definition)
-
 
