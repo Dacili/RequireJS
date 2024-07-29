@@ -107,7 +107,8 @@ They implemented require(), to make it easier to cooperate with other AMD loader
 (https://stackoverflow.com/questions/13605600/requirejs-difference-between-requirejs-and-require-functions)
 ## Configuration settings: 
 ### baseUrl
-baseUrl: the root path to use for all module lookups
+baseUrl: the root path to use for all module lookups  
+Load any module from the folder that matches url.  
 
 ### data-main attribute
 ```
