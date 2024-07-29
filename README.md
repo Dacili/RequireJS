@@ -137,7 +137,8 @@ define("foo/medii",
 ```
 ##### b) Define named module with dependencies
 define() function allows the module to declare its dependencies before being loaded:   
- ```  define("foo/medii",
+ ```
+ define("foo/medii",
         ["my/cart", "my/inventory"],
         function(cart, inventory) {
             //Define foo/title object in here.
