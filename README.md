@@ -129,7 +129,7 @@ The code above technically means:
 #### 5. or you could define your own module with define()
 ##### a) Define named module without dependencies
  ```
-define("foo/medii",
+define("medii",
         function(cart, inventory) {
             //Define foo/title object in here.
        }
@@ -138,7 +138,7 @@ define("foo/medii",
 ##### b) Define named module with dependencies
 define() function allows the module to declare its dependencies before being loaded:   
  ```
- define("foo/medii",
+ define("medii",
         ["my/cart", "my/inventory"],
         function(cart, inventory) {
             //Define foo/title object in here.
@@ -149,7 +149,7 @@ The code above defines new module medii, once the dependencies in the array are 
 And then call that module wherever you need it like:  
 
 ```
-require(["foo/medii"], function(myModule) {
+require(["medii"], function(myModule) {
 });
 ```
 ## requirejs() vs require()
