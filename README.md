@@ -33,7 +33,33 @@ There are some reasons:
 <script src="dependsOnDemo.js"></script>
 ``` 
 ## How to use it?
+1. Download the file (https://requirejs.org/docs/download.html#requirejs) and name it *require.js*  
+2. Use script tag in HTML for that file
+ ```
+ <script src="scripts/require.js"></script>
+```
+3. Create a JS file, where we will need to access HTML elements with jQuery.
+ ```
+  requirejs(['jquery', 'canvas'],
+function   ($,        canvas,   sub) {
+    //jQuery and canvas modules are all
+    //loaded and can be used here now.
+});
+```
+3. In some JS file use:
+```
+requirejs([
+   "medina"
+], function(example) {
+   //you code stuff is here
+   //example.callFunction();
+});
+```
+It searched “medina.js” in the same folder and take example as an object of the medina.js file to call the functions of the medina.js.
 
+## requirejs() vs require()
+Sometimes we will see one or other use in practice. But technically, they're the same.  
+(https://stackoverflow.com/questions/13605600/requirejs-difference-between-requirejs-and-require-functions)
 ## Configuration settings: 
 ### baseUrl
 baseUrl: the root path to use for all module lookups
@@ -51,10 +77,23 @@ The path mapping code will automatically add the .js extension when mapping the 
 waitSeconds: The number of seconds to wait before giving up on loading a script.  
 Setting it to 0 disables the timeout. The default is 7 seconds.
 
-
+## Why in some places there is a data-main attribute in the script tag?
+(https://stackoverflow.com/questions/35027046/difference-between-data-main-and-normal-script-loading)  
+Script tag with data-main attribute:
+```
+<script data-main="scripts/main" src="scripts/require.js"></script>
+```
+or without data-main attribute
+```
+<script src="scripts/require.js"></script>
+```
+The first one is equivalent to this:
+```
+<script src="scripts/require.js"></script>
+<script>require(["scripts/main"])</script>
+```
+Also, the difference is mentioned in *configuration settings* part, for data-main attr.
 ## Define vs require
-
-https://stackoverflow.com/questions/35027046/difference-between-data-main-and-normal-script-loading
 https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
 
 ## Errors 
