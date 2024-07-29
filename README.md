@@ -11,7 +11,7 @@ Modules can contain functions, variables, and objects that perform specific func
 is a project to standardize the module ecosystem for JavaScript outside of web browsers.  
 CommonJS's specification of how modules should work is widely used today for server-side JavaScript with **Node.js**.
 #### 2. AMD (Asynchronous module definition) 
-AMD based module systems such as RequireJS.
+AMD based module systems such as RequireJS.  
 AMD is a JavaScript specification that defines an interface for writing and loading modules, such that the module and its dependencies can be asynchronously loaded.
 #### 3. UMD  (Universal Module Definition)
 one more module system, suggested as a universal one, is compatible with AMD and CommonJS.
