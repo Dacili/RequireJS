@@ -34,10 +34,37 @@ There are some reasons:
 ``` 
 ## How to use it?
 1. Download the file (https://requirejs.org/docs/download.html#requirejs) and name it *require.js*  
-2. Use script tag in HTML for that file
+2. Use script tag in HTML for require.js file
  ```
  <script src="scripts/require.js"></script>
 ```
+3. If you want to create a config file, you could add something like this code to new js file (create something like require-js-config.js). Check *Configuration settings* section for more details regarding the config.  
+```
+   requirejs.config({
+    //By default load any module IDs from js/lib
+    baseUrl: 'js/lib',
+    //except, if the module ID starts with "app", load it from the js/app directory. paths config is relative to the baseUrl,
+    // and never includes a ".js" extension since the paths config could be for a directory.
+    paths: {
+        app: '../app'
+    }
+   });  
+```
+and then in code you could use something like this  
+```
+<script src="scripts/require.js"></script>
+<script>
+require(['scripts/require-js-config'], function() {
+    // Configuration loaded now, safe to do other require calls that depend on that config.
+    require(['foo'], function(foo) {
+    });
+});
+</script>
+```
+
+If you don't create any config, it will use defaults, from require.js file:
+![image](https://github.com/user-attachments/assets/9b0a0943-019c-45d4-9ad3-930ee3785e10)
+
 3. Create a JS file, where we will need to access HTML elements with jQuery.
  ```
   requirejs(['jquery', 'canvas'],
@@ -58,15 +85,23 @@ requirejs([
 It searched “medina.js” in the same folder and take example as an object of the medina.js file to call the functions of the medina.js.
 
 ## requirejs() vs require()
-Sometimes we will see one or other use in practice. But technically, they're the same.  
+Sometimes we will see one or other use in practice. But technically, **they're the same**.  
+They implemented require(), to make it easier to cooperate with other AMD loaders on globally agreed names.  
 (https://stackoverflow.com/questions/13605600/requirejs-difference-between-requirejs-and-require-functions)
 ## Configuration settings: 
 ### baseUrl
 baseUrl: the root path to use for all module lookups
 
 ### data-main attribute
+```
+<script data-main="scripts/main" src="scripts/require.js"></script>
+```
 If no baseUrl is explicitly set in the configuration, the default value will be the location of the HTML page that loads require.js.   
-If a data-main attribute is used, that path will become the baseUrl.  
+If a data-main attribute is used, that path will become the baseUrl (in example, it would be main.js path).  
+If you *want to do require()* calls *in the HTML* page, then it is best to *not use data-main*.  
+![image](https://github.com/user-attachments/assets/6eec26e2-139e-44e8-a314-81af6600cbe8)  
+
+data-main is only intended for use when the page just has *one main entry point*, the data-main script. 
 
 ### paths
 paths: path mappings for module names not found directly under baseUrl  
