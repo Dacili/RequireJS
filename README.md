@@ -38,8 +38,12 @@ There are some reasons:
  ```
  <script src="scripts/require.js"></script>
 ```
-3. Config file
-a) Creating config file:
+3. **Config** file  
+a) Use **default** config:    
+If you don't create any config, it will use defaults, from require.js file:  
+![image](https://github.com/user-attachments/assets/9b0a0943-019c-45d4-9ad3-930ee3785e10)
+
+b) **Create config file**:  
 If you want to create a config file, you could add something like this code to new js file (create something like require-js-config.js). Check *Configuration settings* section for more details regarding the config.  
 ```
    requirejs.config({
@@ -71,11 +75,7 @@ The code above technically means:
 require(['foo'], function(foo) {
     });
 ```
-The parameter in function can be named whatever you like, and it's an object from the module you loaded. So you could now use functions from that module.
-
-b) Using default config:  
-If you don't create any config, it will use defaults, from require.js file:
-![image](https://github.com/user-attachments/assets/9b0a0943-019c-45d4-9ad3-930ee3785e10)
+*The parameter in function can be named whatever you like, and it's an object from the module you loaded. So you could now use functions from that module.*
 
 4. Create a JS file, where we will need to access HTML elements with jQuery.
  ```
