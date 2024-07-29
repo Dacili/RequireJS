@@ -156,8 +156,13 @@ https://stackoverflow.com/questions/9507606/when-should-i-use-require-and-when-t
 https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
 
 ## Errors 
+The error that made me learn more about require js is:  
+MISMATCHED ANONYMOUS DEFINE() MODULES (https://requirejs.org/docs/errors.html#mismatch)    
+The external library has in their SDK js file, *define* without the name of the module, so that blows require js.  
+```
+define([],t)
+```
 https://stackoverflow.com/questions/63793934/how-to-solve-mismatched-anonymous-define-module
-
 ## AMD (Asynchronous Module Definition)
 
 
