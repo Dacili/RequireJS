@@ -10,14 +10,20 @@ Modules can contain functions, variables, and objects that perform specific func
 #### 1. CommonJS 
 is a project to standardize the module ecosystem for JavaScript outside of web browsers.  
 CommonJS's specification of how modules should work is widely used today for server-side JavaScript with **Node.js**.
-#### 2. AMD-based module systems such as RequireJS
+#### 2. AMD (Asynchronous module definition) 
+AMD based module systems such as RequireJS.
 AMD is a JavaScript specification that defines an interface for writing and loading modules, such that the module and its dependencies can be asynchronously loaded.
+#### 3. UMD  (Universal Module Definition)
+one more module system, suggested as a universal one, is compatible with AMD and CommonJS.
+#### Newer: 
+#### 4. Webpack 
+is used to bundle modules and optimize the code.  
+When using webpack to bundle your app, you can pick from a variety of module syntax styles including ES6, CommonJS, and AMD.
 
-#### 3. Webpack 
-webpack is a static module bundler for modern JavaScript applications
-
-#### 4. Babel
-is a JavaScript compiler
+#### 5. Babel
+- is a JavaScript compiler  
+- is used to transpile the JavaScript code, making it compatible with older browsers.  
+Transpile = process of converting source code from one high-level programming language to another
 
 ## Ways to execute JS script
 There are several ways an external script can be executed:  
