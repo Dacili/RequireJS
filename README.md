@@ -138,8 +138,13 @@ define() function allows the module to declare its dependencies before being loa
        }
     );
 ```
-The code above defines new module medii, once the dependencies in the array are loaded.  
+The code above defines new module medii, once the dependencies in the array are loaded.   
+And then call that module wherever you need it like:  
 
+```
+require(["foo/medii"], function(myModule) {
+});
+```
 ## requirejs() vs require()
 Sometimes we will see one or other use in practice. But technically, **they're the same**.  
 They implemented require(), to make it easier to cooperate with other AMD loaders on globally agreed names.  
