@@ -149,6 +149,10 @@ The first one is equivalent to this:
 ```
 Also, the difference is mentioned in *configuration settings* part, for data-main attr.
 ## Define vs require
+- define: used to define modules for use in multiple locations(reuse)
+- require: load and use existing modules (I want this module + also load all its dependencies)
+
+https://stackoverflow.com/questions/9507606/when-should-i-use-require-and-when-to-use-define  
 https://stackoverflow.com/questions/17366073/requirejs-define-vs-require
 
 ## Errors 
