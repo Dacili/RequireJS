@@ -38,7 +38,9 @@ There are some reasons:
  ```
  <script src="scripts/require.js"></script>
 ```
-3. If you want to create a config file, you could add something like this code to new js file (create something like require-js-config.js). Check *Configuration settings* section for more details regarding the config.  
+3. Config file
+a) Creating config file:
+If you want to create a config file, you could add something like this code to new js file (create something like require-js-config.js). Check *Configuration settings* section for more details regarding the config.  
 ```
    requirejs.config({
     //By default load any module IDs from js/lib
@@ -61,11 +63,21 @@ require(['scripts/require-js-config'], function() {
 });
 </script>
 ```
+The code above technically means:
+- Load require.js  
+- After that, check whether the require-js-config is loaded, and once it is, execute the code from function,
+- After that once foo is loaded, proceed with its function.  
+```
+require(['foo'], function(foo) {
+    });
+```
+The parameter in function can be named whatever you like, and it's an object from the module you loaded. So you could now use functions from that module.
 
+b) Using default config:  
 If you don't create any config, it will use defaults, from require.js file:
 ![image](https://github.com/user-attachments/assets/9b0a0943-019c-45d4-9ad3-930ee3785e10)
 
-3. Create a JS file, where we will need to access HTML elements with jQuery.
+4. Create a JS file, where we will need to access HTML elements with jQuery.
  ```
   requirejs(['jquery', 'canvas'],
 function   ($,        canvas,   sub) {
@@ -73,7 +85,7 @@ function   ($,        canvas,   sub) {
     //loaded and can be used here now.
 });
 ```
-3. In some JS file use:
+5. In some JS file use:
 ```
 requirejs([
    "medina"
