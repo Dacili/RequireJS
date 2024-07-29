@@ -2,8 +2,24 @@
 https://requirejs.org/docs/api.html  
 
 ## What is RequireJS?
+RequireJS is a JavaScript *file and module loader*.  
+In JavaScript, *module loaders* are tools or mechanisms that allow you to load and manage *modules*.  
+*Modules* are reusable pieces of code.
+
+## async in script tag in HTML
+There are several ways an external script can be executed:  
+- **async**: The script is downloaded *in parallel* to parsing the page and *executed* as soon as it is available (**before parsing completes**)  
+  ```<script src="demo_async.js" async></script>```  
+- **defer**: The script is downloaded *in parallel* to parsing the page, and executed **after parsing (of page) completes**   
+```<script src="demo_async.js" defer></script>```  
+- **neither async or defer** is present: The script is downloaded and executed immediately, **blocking parsing until the script is completed**    
+```<script src="demo_async.js"></script>```  
 
 ## Why to use it?
+There are some reasons:  
+ • In a large app, a lot of JavaScript files are needed, and each *script tag* needs a request.  
+ ``` <script src='https://unpkg.com/@cometchat/chat-sdk-javascript@4.0.7/CometChat.js' type="text/javascript"></script>```  
+ • You have to put them in a same order in which they are called, i.e. File which is dependent on other should be loaded after the dependent ones.  
 
 ## How to use it?
 
@@ -35,4 +51,4 @@ https://stackoverflow.com/questions/63793934/how-to-solve-mismatched-anonymous-d
 
 ## AMD (Asynchronous Module Definition)
 
-## async in script tag in HTML
+
