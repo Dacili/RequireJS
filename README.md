@@ -122,7 +122,7 @@ If you *want to do require()* calls *in the HTML* page, then it is best to *not 
 data-main is only intended for use when the page just has *one main entry point*, the data-main script. 
 
 ### paths
-paths: path mappings for module names not found directly under baseUrl  
+paths: path mappings for module names *not found directly under baseUrl*  
 The path that is used for a module name should not include an extension (e.g. .js), since the path mapping could be for a directory.  
 The path mapping code will automatically add the .js extension when mapping the module name to a path. 
 
