@@ -1,11 +1,6 @@
 # RequireJS
 https://requirejs.org/docs/api.html  
 
-## What is RequireJS?
-RequireJS is a JavaScript *file and module loader*.  
-In JavaScript, *module loaders* are tools or mechanisms that allow you to load and manage *modules*.  
-*Modules* are reusable pieces of code.
-
 ## Ways to execute JS script
 There are several ways an external script can be executed:  
 - **async**: The script is downloaded *in parallel* to parsing the page and *executed* as soon as it is available (**before parsing completes**)  
@@ -19,7 +14,12 @@ There are several ways an external script can be executed:
 - **neither async or defer** is present (it's synchronous): The script is downloaded and executed immediately, **blocking parsing until the script is completed**    
 ```
 <script src="medi.js"></script>
-```  
+```
+
+## What is RequireJS?
+RequireJS is a JavaScript *file and module loader*.  
+In JavaScript, *module loaders* are tools or mechanisms that allow you to load and manage *modules*.  
+*Modules* are reusable pieces of code.
 
 ## Why to use it?
 There are some reasons:  
@@ -33,12 +33,13 @@ There are some reasons:
 <script src="dependsOnDemo.js"></script>
 ``` 
 ## How to use it?
-1. Download the file (https://requirejs.org/docs/download.html#requirejs) and name it *require.js*  
-2. Use script tag in HTML for require.js file
+#### 1. Download the file  
+(https://requirejs.org/docs/download.html#requirejs) and name it *require.js*  
+#### 2. Use script tag in HTML for require.js file
  ```
  <script src="scripts/require.js"></script>
 ```
-3. **Config** file  
+#### 3. **Config** file  
 a) Use **default** config:    
 If you don't create any config, it will use defaults, from require.js file:  
 ![image](https://github.com/user-attachments/assets/9b0a0943-019c-45d4-9ad3-930ee3785e10)  
@@ -49,7 +50,8 @@ Relative paths symbols:
 ../ (parent)
 
 b) **Create config file**:  
-If you want to create a config file, you could add something like this code to new js file (create something like require-js-config.js). Check *Configuration settings* section for more details regarding the config.  
+If you want to create a config file, you could add something like this code to new js file (create something like require-js-config.js).  
+Check *Configuration settings* section for more details regarding the config.  
 ```
    requirejs.config({
     //By default load any module IDs from js/lib
@@ -61,7 +63,30 @@ If you want to create a config file, you could add something like this code to n
     }
    });  
 ```
-and then in code you could use something like this  
+
+#### 4. use **requirejs()** function
+##### a) you need 1 module to be loaded for some function
+```
+requirejs(["medina"], function(exampleParam) {
+   // you code stuff is here
+   // exampleParam.callFunction();
+});
+```
+- once medina.js file is loaded, the function will be executed
+- *The parameter exampleParam in function can be named whatever you like, and it's an object from the module you loaded. So you could now use functions from that module.*
+
+#### b) you need several modules to be loaded
+```
+requirejs(['jquery', 'canvas'],
+function   ($, canvas) {
+    //jQuery and canvas modules are all
+    //loaded and can be used here now.
+});
+```
+if we require *more modules*, then in the function we will have *as many params*, where the **order will be matched** as in requirejs function  
+![image](https://github.com/user-attachments/assets/54266a22-1315-41bc-ae16-b358c2a37ba5)  
+
+If you created a config file, you could call it same way      
 ```
 <script src="scripts/require.js"></script>
 <script>
@@ -74,32 +99,8 @@ require(['scripts/require-js-config'], function() {
 ```
 The code above technically means:
 - Load require.js  
-- After that, check whether the require-js-config is loaded, and once it is, execute the code from function,
+- After that, when require-js-config is loaded, execute the code from the function,
 - After that once foo is loaded, proceed with its function.  
-```
-require(['foo'], function(foo) {
-    });
-```
-*The parameter in function can be named whatever you like, and it's an object from the module you loaded. So you could now use functions from that module.*
-
-4. Create a JS file, where we will need to access HTML elements with jQuery.
- ```
-  requirejs(['jquery', 'canvas'],
-function   ($,        canvas,   sub) {
-    //jQuery and canvas modules are all
-    //loaded and can be used here now.
-});
-```
-5. In some JS file use:
-```
-requirejs([
-   "medina"
-], function(example) {
-   //you code stuff is here
-   //example.callFunction();
-});
-```
-It searched “medina.js” in the same folder and take example as an object of the medina.js file to call the functions of the medina.js.
 
 ## requirejs() vs require()
 Sometimes we will see one or other use in practice. But technically, **they're the same**.  
